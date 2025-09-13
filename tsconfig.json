@@ -22,25 +22,5 @@
     "typeCheckHostBindings": true,
     "strictTemplates": true
   },
-  "files": [],
-  "references": [
-    {
-      "path": "./projects/host/tsconfig.app.json"
-    },
-    {
-      "path": "./projects/host/tsconfig.spec.json"
-    },
-    {
-      "path": "./projects/sudoku/tsconfig.app.json"
-    },
-    {
-      "path": "./projects/sudoku/tsconfig.spec.json"
-    },
-    {
-      "path": "./projects/maze/tsconfig.app.json"
-    },
-    {
-      "path": "./projects/maze/tsconfig.spec.json"
-    }
-  ]
+  "files": []
 }
