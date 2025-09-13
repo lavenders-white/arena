@@ -11,9 +11,11 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular/build:application",
+          "builder": "@angular-builders/custom-webpack:browser",
           "options": {
-            "browser": "projects/host/src/main.ts",
+            "outputPath": "dist/host",
+            "index": "projects/host/src/index.html",
+            "main": "projects/host/src/main.ts",
             "tsConfig": "projects/host/tsconfig.app.json",
             "assets": [
               {
@@ -24,10 +26,11 @@
             "styles": [
               "projects/host/src/styles.css"
             ],
-            "server": "projects/host/src/main.server.ts",
-            "outputMode": "server",
-            "ssr": {
-              "entry": "projects/host/src/server.ts"
+            
+            
+            
+            "customWebpackConfig": {
+              "path": "./projects/host/webpack.config.js"
             }
           },
           "configurations": {
@@ -55,7 +58,10 @@
           "defaultConfiguration": "production"
         },
         "serve": {
-          "builder": "@angular/build:dev-server",
+          "builder": "@angular-builders/custom-webpack:dev-server",
+          "options": {
+            "port": 4200
+          },
           "configurations": {
             "production": {
               "buildTarget": "host:build:production"
@@ -94,9 +100,11 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular/build:application",
+          "builder": "@angular-builders/custom-webpack:browser",
           "options": {
-            "browser": "projects/sudoku/src/main.ts",
+            "outputPath": "dist/sudoku",
+            "index": "projects/sudoku/src/index.html",
+            "main": "projects/sudoku/src/main.ts",
             "tsConfig": "projects/sudoku/tsconfig.app.json",
             "assets": [
               {
@@ -107,10 +115,9 @@
             "styles": [
               "projects/sudoku/src/styles.css"
             ],
-            "server": "projects/sudoku/src/main.server.ts",
-            "outputMode": "server",
-            "ssr": {
-              "entry": "projects/sudoku/src/server.ts"
+            
+            "customWebpackConfig": {
+              "path": "./projects/sudoku/webpack.config.js"
             }
           },
           "configurations": {
@@ -138,7 +145,10 @@
           "defaultConfiguration": "production"
         },
         "serve": {
-          "builder": "@angular/build:dev-server",
+          "builder": "@angular-builders/custom-webpack:dev-server",
+          "options": {
+            "port": 4201
+          },
           "configurations": {
             "production": {
               "buildTarget": "sudoku:build:production"
@@ -177,9 +187,11 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular/build:application",
+          "builder": "@angular-builders/custom-webpack:browser",
           "options": {
-            "browser": "projects/maze/src/main.ts",
+            "outputPath": "dist/maze",
+            "index": "projects/maze/src/index.html",
+            "main": "projects/maze/src/main.ts",
             "tsConfig": "projects/maze/tsconfig.app.json",
             "assets": [
               {
@@ -190,10 +202,9 @@
             "styles": [
               "projects/maze/src/styles.css"
             ],
-            "server": "projects/maze/src/main.server.ts",
-            "outputMode": "server",
-            "ssr": {
-              "entry": "projects/maze/src/server.ts"
+            
+            "customWebpackConfig": {
+              "path": "./projects/maze/webpack.config.js"
             }
           },
           "configurations": {
@@ -221,7 +232,10 @@
           "defaultConfiguration": "production"
         },
         "serve": {
-          "builder": "@angular/build:dev-server",
+          "builder": "@angular-builders/custom-webpack:dev-server",
+          "options": {
+            "port": 4202
+          },
           "configurations": {
             "production": {
               "buildTarget": "maze:build:production"
