@@ -3,5 +3,254 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
+    "host": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/host",
+      "sourceRoot": "projects/host/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:application",
+          "options": {
+            "browser": "projects/host/src/main.ts",
+            "tsConfig": "projects/host/tsconfig.app.json",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "projects/host/public"
+              }
+            ],
+            "styles": [
+              "projects/host/src/styles.css"
+            ],
+            "server": "projects/host/src/main.server.ts",
+            "outputMode": "server",
+            "ssr": {
+              "entry": "projects/host/src/server.ts"
+            }
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kB",
+                  "maximumError": "1MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "4kB",
+                  "maximumError": "8kB"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular/build:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "host:build:production"
+            },
+            "development": {
+              "buildTarget": "host:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular/build:extract-i18n"
+        },
+        "test": {
+          "builder": "@angular/build:karma",
+          "options": {
+            "tsConfig": "projects/host/tsconfig.spec.json",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "projects/host/public"
+              }
+            ],
+            "styles": [
+              "projects/host/src/styles.css"
+            ]
+          }
+        }
+      }
+    },
+    "sudoku": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/sudoku",
+      "sourceRoot": "projects/sudoku/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:application",
+          "options": {
+            "browser": "projects/sudoku/src/main.ts",
+            "tsConfig": "projects/sudoku/tsconfig.app.json",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "projects/sudoku/public"
+              }
+            ],
+            "styles": [
+              "projects/sudoku/src/styles.css"
+            ],
+            "server": "projects/sudoku/src/main.server.ts",
+            "outputMode": "server",
+            "ssr": {
+              "entry": "projects/sudoku/src/server.ts"
+            }
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kB",
+                  "maximumError": "1MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "4kB",
+                  "maximumError": "8kB"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular/build:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "sudoku:build:production"
+            },
+            "development": {
+              "buildTarget": "sudoku:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular/build:extract-i18n"
+        },
+        "test": {
+          "builder": "@angular/build:karma",
+          "options": {
+            "tsConfig": "projects/sudoku/tsconfig.spec.json",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "projects/sudoku/public"
+              }
+            ],
+            "styles": [
+              "projects/sudoku/src/styles.css"
+            ]
+          }
+        }
+      }
+    },
+    "maze": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/maze",
+      "sourceRoot": "projects/maze/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:application",
+          "options": {
+            "browser": "projects/maze/src/main.ts",
+            "tsConfig": "projects/maze/tsconfig.app.json",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "projects/maze/public"
+              }
+            ],
+            "styles": [
+              "projects/maze/src/styles.css"
+            ],
+            "server": "projects/maze/src/main.server.ts",
+            "outputMode": "server",
+            "ssr": {
+              "entry": "projects/maze/src/server.ts"
+            }
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kB",
+                  "maximumError": "1MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "4kB",
+                  "maximumError": "8kB"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular/build:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "maze:build:production"
+            },
+            "development": {
+              "buildTarget": "maze:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular/build:extract-i18n"
+        },
+        "test": {
+          "builder": "@angular/build:karma",
+          "options": {
+            "tsConfig": "projects/maze/tsconfig.spec.json",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "projects/maze/public"
+              }
+            ],
+            "styles": [
+              "projects/maze/src/styles.css"
+            ]
+          }
+        }
+      }
+    }
   }
 }
